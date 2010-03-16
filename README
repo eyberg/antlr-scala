@@ -1,0 +1,50 @@
+ABOUT:
+
+  this will contain as I get the time an antlr target
+  for scala -- it really should not be that hard because
+  we can essentially use the vast majority of the java
+  stuff to generate our scala classes...
+
+  just expanded the included antlr jar to make this
+  -- we prob. don't need all this extra crap laying
+  around...
+
+  following this:
+    http://www.antlr.org/wiki/display/ANTLR3/How+to+build+an+ANTLR+code+generation+target
+
+
+WHY:
+
+  I've been converting a java project to scala to learn
+scala recently and started to not like muddying up
+my grammars with code that looked like this:
+
+  hand.actions().\$eq\$plus(naction);
+
+when in scala it could look like this:
+
+  hand.actions += naction
+
+HOW:
+
+  thinking the key here is to make quite a few tests
+  and then start having them go from red to green
+
+  javap is your best buddy and friend -- if scala
+  or java starts to bitch about something not being
+  availale import the (java/scala) class and then use
+  javap on it to figure out which method you need
+  to substitue it with
+
+  anyways.... to get started all you need to do
+  is cd into scala-target/
+
+  from there you can:
+
+  java -cp ~/antlr-scala/ org.antlr.Tool T.g
+
+  to generate your test grammar
+
+WHEN:
+  hopefully I don't go get drunk and blow this
+  off for a month
